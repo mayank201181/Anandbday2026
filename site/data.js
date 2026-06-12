@@ -32,7 +32,6 @@ window.TRIBUTE = {
     { text: "And in the end the king and pawn enter the same box.", date: "2015-08-10", year: 2015 },
     { text: "You don't have to prove anything to anybody; including yourself.", date: "2015-08-03", year: 2015 },
     { text: "If u can't find pleasure in simple or the mundane then you won't find pleasure anywhere.", date: "2015-08-03", year: 2015 },
-    { text: "I have been managing an imbalance called OCD … it has given me a lot of strength and ability to be compassionate and resilient. At one point I was struggling for survival. Its better now … with family friends and love of the universe life is smiling back.", date: "2015-06-06", year: 2015, weight: 2 },
     { text: "Keep life simple meanwhile. Trying to understand life mentally won't be possible. We can wonder and be in awe of it.", date: "2016-02-07", year: 2016 },
     { text: "Cry not coz u r weak but coz pretending to be strong is fatal. Don't stop ur tears. If he has got u to it he will get u thru it.", date: "2016-08-25", year: 2016 },
     { text: "If u hav decided u will find it 😇", date: "2017-01-13", year: 2017 },
