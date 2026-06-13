@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Anand Turns Forty Five · The Beatles</title>
+  <meta name="description" content="A birthday tribute to Anand from The Beatles — twelve years, one chat group, and everything beautiful in it." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="styles.css" />
+  <script>
+    // Pre-paint: if already unlocked this browser, skip the gate (no flash).
+    try { if (localStorage.getItem("anandGate") === "1") document.documentElement.classList.add("unlocked"); } catch (e) {}
+  </script>
+</head>
+<body>
+  <!-- Night sky -->
+  <canvas id="starfield" aria-hidden="true"></canvas>
+  <canvas id="confetti" aria-hidden="true"></canvas>
+
+  <!-- Access gate -->
+  <div class="gate" id="gate">
+    <div class="gate-card">
+      <p class="kicker">The Beatles · est. 2014</p>
+      <h2 class="gate-title">A little something<br />for <span class="gold">Anand</span></h2>
+      <p class="gate-sub">Enter the access code to come in.</p>
+      <form id="gateForm" class="gate-form" autocomplete="off">
+        <input id="gateInput" class="gate-input" type="text" inputmode="text"
+               autocapitalize="none" autocorrect="off" spellcheck="false"
+               placeholder="access code" aria-label="Access code" />
+        <button class="cta" type="submit">Enter</button>
+      </form>
+      <p class="gate-err" id="gateErr" role="alert"></p>
+      <p class="gate-hint">Ask a Beatle for the code.</p>
+    </div>
+  </div>
+
+  <!-- Hero -->
+  <header class="hero" id="top">
+    <div class="hero-inner">
+      <p class="kicker">The Beatles · est. 2014</p>
+      <h1 class="hero-title">Happy <span class="gold">45<sup>th</sup></span><br />Anand</h1>
+      <p class="hero-sub">Twelve years of one chat group — and everything beautiful we found in it.</p>
+      <div class="hero-meta">
+        <span>18 · 06</span><span class="dot">•</span><span>Mayank · Vighanesh · Paras</span>
+      </div>
+      <button class="cta" id="wishBtn">Light a candle &amp; make a wish</button>
+    </div>
+  </header>
+
+  <!-- Tab navigation -->
+  <nav class="tabs" id="tabs" role="tablist" aria-label="Sections">
+    <button class="tab active" data-tab="words" role="tab">His Words</button>
+    <button class="tab" data-tab="years" role="tab">The Years</button>
+    <button class="tab" data-tab="photos" role="tab">Photos</button>
+    <button class="tab" data-tab="videos" role="tab">Videos</button>
+    <button class="tab" data-tab="wishes" role="tab">Wishes</button>
+  </nav>
+
+  <main id="main">
+    <!-- TAB: His Words -->
+    <div class="tab-panel active" data-panel="words">
+      <section class="section intro reveal">
+        <p class="intro-lead" id="introLead"></p>
+        <blockquote class="jobs" id="jobsQuote"></blockquote>
+      </section>
+      <section class="section reveal" id="words">
+        <h2 class="section-title">Anand, in his own words</h2>
+        <p class="section-note">Lines he dropped into the chat across twelve years. Each one verbatim, each one dated.</p>
+        <div class="quote-wall" id="quoteWall"></div>
+      </section>
+    </div>
+
+    <!-- TAB: The Years -->
+    <div class="tab-panel" data-panel="years">
+      <section class="section reveal" id="years">
+        <h2 class="section-title">The Beatles years</h2>
+        <p class="section-note">One headline a year. 2014 → 2026.</p>
+        <ol class="timeline" id="timeline"></ol>
+      </section>
+      <section class="section reveal" id="about">
+        <h2 class="section-title">What the Beatles say about you</h2>
+        <div class="about-grid" id="aboutGrid"></div>
+      </section>
+      <section class="section reveal" id="legends">
+        <h2 class="section-title">The legends</h2>
+        <p class="section-note">Every long friendship has its mythology. Here's some of yours.</p>
+        <div class="legend-grid" id="legendGrid"></div>
+      </section>
+      <section class="section reveal" id="milestones">
+        <h2 class="section-title">A few things you did</h2>
+        <div class="milestone-list" id="milestoneList"></div>
+      </section>
+    </div>
+
+    <!-- TAB: Photos -->
+    <div class="tab-panel" data-panel="photos">
+      <section class="section reveal" id="gallery">
+        <h2 class="section-title">Twelve years, a few frames</h2>
+        <p class="section-note">Moments from the group — treks, trips, celebrations, everyday joy. Tap any photo to enlarge.</p>
+        <div class="gallery-grid" id="galleryGrid"></div>
+      </section>
+    </div>
+
+    <!-- TAB: Videos -->
+    <div class="tab-panel" data-panel="videos">
+      <section class="section reveal" id="videos">
+        <h2 class="section-title">Moving pictures</h2>
+        <p class="section-note">A few moments that needed sound. Tap to play.</p>
+        <div class="video-grid" id="videoGrid"></div>
+      </section>
+    </div>
+
+    <!-- TAB: Wishes -->
+    <div class="tab-panel" data-panel="wishes">
+      <section class="section reveal" id="wishes">
+        <h2 class="section-title">Birthday wishes, through the years</h2>
+        <div class="wishes-stream" id="wishesStream"></div>
+      </section>
+      <section class="section closing reveal" id="closing">
+        <div class="cake" id="cake" role="button" tabindex="0" aria-label="Blow out the candles">
+          <div class="flame"></div>
+          <div class="cake-top"></div>
+          <div class="cake-body"></div>
+        </div>
+        <h2 class="closing-heading" id="closingHeading"></h2>
+        <div class="closing-body" id="closingBody"></div>
+        <p class="closing-signoff" id="closingSignoff"></p>
+      </section>
+    </div>
+  </main>
+
+  <footer class="footer">
+    <p>Made with love by The Beatles — for Anand's 45th. <span class="muted">18 June 2026.</span></p>
+    <button class="top-link" id="topLink">back to the top ↑</button>
+  </footer>
+
+  <!-- Lightbox -->
+  <div class="lightbox" id="lightbox" hidden>
+    <button class="lb-close" id="lbClose" aria-label="Close">×</button>
+    <button class="lb-nav lb-prev" id="lbPrev" aria-label="Previous">‹</button>
+    <figure class="lb-stage">
+      <div class="lb-media" id="lbMedia"></div>
+      <figcaption class="lb-cap" id="lbCap"></figcaption>
+    </figure>
+    <button class="lb-nav lb-next" id="lbNext" aria-label="Next">›</button>
+  </div>
+
+  <script src="data.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>
