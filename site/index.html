@@ -26,76 +26,88 @@
       </div>
       <button class="cta" id="wishBtn">Light a candle &amp; make a wish</button>
     </div>
-    <div class="scroll-cue" aria-hidden="true">
-      <span>scroll</span>
-      <div class="scroll-line"></div>
-    </div>
   </header>
 
-  <main>
-    <!-- Intro -->
-    <section class="section intro reveal">
-      <p class="intro-lead" id="introLead"></p>
-      <blockquote class="jobs" id="jobsQuote"></blockquote>
-    </section>
+  <!-- Tab navigation -->
+  <nav class="tabs" id="tabs" role="tablist" aria-label="Sections">
+    <button class="tab active" data-tab="words" role="tab">His Words</button>
+    <button class="tab" data-tab="years" role="tab">The Years</button>
+    <button class="tab" data-tab="photos" role="tab">Photos</button>
+    <button class="tab" data-tab="videos" role="tab">Videos</button>
+    <button class="tab" data-tab="wishes" role="tab">Wishes</button>
+  </nav>
 
-    <!-- His own words -->
-    <section class="section reveal" id="words">
-      <h2 class="section-title">Anand, in his own words</h2>
-      <p class="section-note">Lines he dropped into the chat across twelve years. Each one verbatim, each one dated.</p>
-      <div class="quote-wall" id="quoteWall"></div>
-    </section>
+  <main id="main">
+    <!-- TAB: His Words -->
+    <div class="tab-panel active" data-panel="words">
+      <section class="section intro reveal">
+        <p class="intro-lead" id="introLead"></p>
+        <blockquote class="jobs" id="jobsQuote"></blockquote>
+      </section>
+      <section class="section reveal" id="words">
+        <h2 class="section-title">Anand, in his own words</h2>
+        <p class="section-note">Lines he dropped into the chat across twelve years. Each one verbatim, each one dated.</p>
+        <div class="quote-wall" id="quoteWall"></div>
+      </section>
+    </div>
 
-    <!-- Timeline -->
-    <section class="section reveal" id="years">
-      <h2 class="section-title">The Beatles years</h2>
-      <p class="section-note">One headline a year. 2014 → 2026.</p>
-      <ol class="timeline" id="timeline"></ol>
-    </section>
+    <!-- TAB: The Years -->
+    <div class="tab-panel" data-panel="years">
+      <section class="section reveal" id="years">
+        <h2 class="section-title">The Beatles years</h2>
+        <p class="section-note">One headline a year. 2014 → 2026.</p>
+        <ol class="timeline" id="timeline"></ol>
+      </section>
+      <section class="section reveal" id="about">
+        <h2 class="section-title">What the Beatles say about you</h2>
+        <div class="about-grid" id="aboutGrid"></div>
+      </section>
+      <section class="section reveal" id="legends">
+        <h2 class="section-title">The legends</h2>
+        <p class="section-note">Every long friendship has its mythology. Here's some of yours.</p>
+        <div class="legend-grid" id="legendGrid"></div>
+      </section>
+      <section class="section reveal" id="milestones">
+        <h2 class="section-title">A few things you did</h2>
+        <div class="milestone-list" id="milestoneList"></div>
+      </section>
+    </div>
 
-    <!-- What friends say -->
-    <section class="section reveal" id="about">
-      <h2 class="section-title">What the Beatles say about you</h2>
-      <div class="about-grid" id="aboutGrid"></div>
-    </section>
+    <!-- TAB: Photos -->
+    <div class="tab-panel" data-panel="photos">
+      <section class="section reveal" id="gallery">
+        <h2 class="section-title">Twelve years, a few frames</h2>
+        <p class="section-note">Moments from the group — treks, trips, celebrations, everyday joy. Tap any photo to enlarge.</p>
+        <div class="gallery-grid" id="galleryGrid"></div>
+      </section>
+    </div>
 
-    <!-- Legends -->
-    <section class="section reveal" id="legends">
-      <h2 class="section-title">The legends</h2>
-      <p class="section-note">Every long friendship has its mythology. Here's some of yours.</p>
-      <div class="legend-grid" id="legendGrid"></div>
-    </section>
+    <!-- TAB: Videos -->
+    <div class="tab-panel" data-panel="videos">
+      <section class="section reveal" id="videos">
+        <h2 class="section-title">Moving pictures</h2>
+        <p class="section-note">A few moments that needed sound. Tap to play.</p>
+        <div class="video-grid" id="videoGrid"></div>
+      </section>
+    </div>
 
-    <!-- Milestones -->
-    <section class="section reveal" id="milestones">
-      <h2 class="section-title">A few things you did</h2>
-      <div class="milestone-list" id="milestoneList"></div>
-    </section>
-
-    <!-- Wishes -->
-    <section class="section reveal" id="wishes">
-      <h2 class="section-title">Birthday wishes, through the years</h2>
-      <div class="wishes-stream" id="wishesStream"></div>
-    </section>
-
-    <!-- Gallery -->
-    <section class="section reveal" id="gallery" hidden>
-      <h2 class="section-title">Twelve years, a few frames</h2>
-      <p class="section-note">Moments from the group — treks, trips, celebrations, everyday joy.</p>
-      <div class="gallery-grid" id="galleryGrid"></div>
-    </section>
-
-    <!-- Closing -->
-    <section class="section closing reveal" id="closing">
-      <div class="cake" id="cake" role="button" tabindex="0" aria-label="Blow out the candles">
-        <div class="flame"></div>
-        <div class="cake-top"></div>
-        <div class="cake-body"></div>
-      </div>
-      <h2 class="closing-heading" id="closingHeading"></h2>
-      <div class="closing-body" id="closingBody"></div>
-      <p class="closing-signoff" id="closingSignoff"></p>
-    </section>
+    <!-- TAB: Wishes -->
+    <div class="tab-panel" data-panel="wishes">
+      <section class="section reveal" id="wishes">
+        <h2 class="section-title">Birthday wishes, through the years</h2>
+        <div class="wishes-stream" id="wishesStream"></div>
+      </section>
+      <section class="section closing reveal" id="closing">
+        <div class="cake" id="cake" role="button" tabindex="0" aria-label="Blow out the candles">
+          <div class="flame"></div>
+          <div class="cake-top"></div>
+          <div class="cake-body"></div>
+        </div>
+        <h2 class="closing-heading" id="closingHeading"></h2>
+        <div class="closing-body" id="closingBody"></div>
+        <p class="closing-signoff" id="closingSignoff"></p>
+      </section>
+    </div>
   </main>
 
   <footer class="footer">

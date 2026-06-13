@@ -98,21 +98,28 @@
   $("closingBody").innerHTML = T.closing.body.map(function (p) { return "<p>" + esc(p) + "</p>"; }).join("");
   $("closingSignoff").textContent = T.closing.signoff;
 
-  /* ── Gallery ── */
+  /* ── Gallery (photos) + Videos ── */
   var gallery = T.gallery || [];
-  if (gallery.length) {
-    document.getElementById("gallery").hidden = false;
-    $("galleryGrid").innerHTML = gallery.map(function (g, i) {
-      var thumb = g.poster || g.src;
-      var badge = g.video ? '<span class="play-badge"></span>' : "";
-      return (
+  var photoHTML = [], videoHTML = [];
+  gallery.forEach(function (g, i) {
+    if (g.video) {
+      videoHTML.push(
+        '<a class="vtile" data-i="' + i + '">' +
+          '<div class="vthumb"><img loading="lazy" src="' + (g.poster || g.src) + '" alt="' + esc(g.caption || "") + '" /><span class="play-badge"></span></div>' +
+          '<div class="vcap">' + esc(g.caption || "") + (g.date ? '<span class="vdate">' + fmtDate(g.date) + "</span>" : "") + "</div>" +
+        "</a>"
+      );
+    } else {
+      photoHTML.push(
         '<a class="gtile" data-i="' + i + '">' +
-          '<img loading="lazy" src="' + thumb + '" alt="' + esc(g.caption || "") + '" />' + badge +
+          '<img loading="lazy" src="' + g.src + '" alt="' + esc(g.caption || "") + '" />' +
           (g.caption ? '<div class="gmeta">' + (g.date ? '<span class="gdate">' + fmtDate(g.date) + "</span> " : "") + esc(g.caption) + "</div>" : "") +
         "</a>"
       );
-    }).join("");
-  }
+    }
+  });
+  $("galleryGrid").innerHTML = photoHTML.join("");
+  $("videoGrid").innerHTML = videoHTML.join("");
 
   /* ── Lightbox ── */
   (function () {
@@ -133,7 +140,7 @@
     function close() { lb.hidden = true; media.innerHTML = ""; document.body.style.overflow = ""; }
     function go(d) { idx = (idx + d + gallery.length) % gallery.length; render(); }
     document.addEventListener("click", function (e) {
-      var tile = e.target.closest(".gtile, .tl-photo[data-i]");
+      var tile = e.target.closest(".gtile, .vtile, .tl-photo[data-i]");
       if (tile && tile.dataset.i != null) { e.preventDefault(); open(+tile.dataset.i); }
     });
     $("lbClose").addEventListener("click", close);
@@ -154,8 +161,32 @@
   }, { threshold: 0.12 });
   document.querySelectorAll(".reveal").forEach(function (el) { io.observe(el); });
 
+  /* ── Tabs ── */
+  var tabs = Array.prototype.slice.call(document.querySelectorAll(".tab"));
+  var panels = Array.prototype.slice.call(document.querySelectorAll(".tab-panel"));
+  function activate(name, scroll) {
+    tabs.forEach(function (t) { t.classList.toggle("active", t.dataset.tab === name); });
+    panels.forEach(function (p) {
+      var on = p.dataset.panel === name;
+      p.classList.toggle("active", on);
+      if (on) p.querySelectorAll(".reveal").forEach(function (el) { el.classList.add("in"); });
+    });
+    if (scroll) {
+      var t = document.getElementById("tabs");
+      var y = t.getBoundingClientRect().top + window.pageYOffset - 2;
+      // Only pull up to the tab bar if we're currently above it.
+      if (window.pageYOffset < y || window.pageYOffset > y + 40) window.scrollTo({ top: y, behavior: "smooth" });
+    }
+  }
+  tabs.forEach(function (t) {
+    t.addEventListener("click", function () { activate(t.dataset.tab, true); });
+  });
+
   /* ── Navigation helpers ── */
-  $("topLink").addEventListener("click", function () { window.scrollTo({ top: 0, behavior: "smooth" }); });
+  $("topLink").addEventListener("click", function () {
+    activate("words", false);
+    window.scrollTo({ top: 0, behavior: "smooth" });
+  });
 
   /* ── Starfield ── */
   (function () {
