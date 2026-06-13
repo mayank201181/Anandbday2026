@@ -41,6 +41,7 @@
         '<span class="tl-age">age ' + y.age + "</span></div>" +
         '<div class="tl-title">' + esc(y.title) + "</div>" +
         '<p class="tl-note">' + esc(y.note) + "</p>" +
+        (y.photo ? '<div class="tl-photo"' + (y.photo.i != null ? ' data-i="' + y.photo.i + '"' : "") + '><img loading="lazy" src="' + y.photo.src + '" alt="' + esc(y.title) + '" /></div>' : "") +
       "</li>"
     );
   }).join("");
@@ -96,6 +97,56 @@
   $("closingHeading").textContent = T.closing.heading;
   $("closingBody").innerHTML = T.closing.body.map(function (p) { return "<p>" + esc(p) + "</p>"; }).join("");
   $("closingSignoff").textContent = T.closing.signoff;
+
+  /* ── Gallery ── */
+  var gallery = T.gallery || [];
+  if (gallery.length) {
+    document.getElementById("gallery").hidden = false;
+    $("galleryGrid").innerHTML = gallery.map(function (g, i) {
+      var thumb = g.poster || g.src;
+      var badge = g.video ? '<span class="play-badge"></span>' : "";
+      return (
+        '<a class="gtile" data-i="' + i + '">' +
+          '<img loading="lazy" src="' + thumb + '" alt="' + esc(g.caption || "") + '" />' + badge +
+          (g.caption ? '<div class="gmeta">' + (g.date ? '<span class="gdate">' + fmtDate(g.date) + "</span> " : "") + esc(g.caption) + "</div>" : "") +
+        "</a>"
+      );
+    }).join("");
+  }
+
+  /* ── Lightbox ── */
+  (function () {
+    var lb = $("lightbox"), media = $("lbMedia"), cap = $("lbCap");
+    var idx = 0;
+    function render() {
+      var g = gallery[idx];
+      if (!g) return;
+      if (g.video) {
+        media.innerHTML = '<video src="' + g.video + '" controls autoplay playsinline ' +
+          (g.poster ? 'poster="' + g.poster + '"' : "") + "></video>";
+      } else {
+        media.innerHTML = '<img src="' + g.src + '" alt="' + esc(g.caption || "") + '" />';
+      }
+      cap.innerHTML = (g.caption ? esc(g.caption) : "") + (g.date ? '<span class="lbd">' + fmtDate(g.date) + "</span>" : "");
+    }
+    function open(i) { idx = i; render(); lb.hidden = false; document.body.style.overflow = "hidden"; }
+    function close() { lb.hidden = true; media.innerHTML = ""; document.body.style.overflow = ""; }
+    function go(d) { idx = (idx + d + gallery.length) % gallery.length; render(); }
+    document.addEventListener("click", function (e) {
+      var tile = e.target.closest(".gtile, .tl-photo[data-i]");
+      if (tile && tile.dataset.i != null) { e.preventDefault(); open(+tile.dataset.i); }
+    });
+    $("lbClose").addEventListener("click", close);
+    $("lbPrev").addEventListener("click", function () { go(-1); });
+    $("lbNext").addEventListener("click", function () { go(1); });
+    lb.addEventListener("click", function (e) { if (e.target === lb) close(); });
+    document.addEventListener("keydown", function (e) {
+      if (lb.hidden) return;
+      if (e.key === "Escape") close();
+      else if (e.key === "ArrowLeft") go(-1);
+      else if (e.key === "ArrowRight") go(1);
+    });
+  })();
 
   /* ── Reveal on scroll ── */
   var io = new IntersectionObserver(function (entries) {

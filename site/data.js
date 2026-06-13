@@ -139,6 +139,11 @@ window.TRIBUTE = {
     ] },
   ],
 
+  // ── Photo gallery ──────────────────────────────────────────────────────
+  // Populated once curated photos are added to assets/photos/.
+  // Each: { src, caption, date, year }. Videos: add { video: "file.mp4", poster: "img.jpg" }.
+  gallery: [],
+
   // ── Closing note ───────────────────────────────────────────────────────
   closing: {
     heading: "Happy 45th, Andy",
