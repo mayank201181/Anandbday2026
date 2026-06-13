@@ -450,6 +450,7 @@ main, .hero, .footer { position: relative; z-index: 1; }
   backdrop-filter: blur(8px);
   animation: fadeIn 0.25s ease;
 }
+.lightbox[hidden] { display: none; }
 .lb-stage { max-width: 90vw; max-height: 88vh; display: flex; flex-direction: column; align-items: center; gap: 0.8rem; }
 .lb-media img, .lb-media video { max-width: 90vw; max-height: 80vh; border-radius: 10px; box-shadow: 0 30px 90px rgba(0,0,0,0.6); }
 .lb-cap { color: var(--cream); font-family: var(--serif); font-size: 1.1rem; text-align: center; max-width: 60ch; }

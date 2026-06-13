@@ -59,18 +59,18 @@ window.TRIBUTE = {
   // One headline per year, 2014 → 2026. The spine of the page.
   timeline: [
     { year: 2014, age: 33, title: "The group is born", note: "Four friends, one chat. Vighanesh would soon name it after a Steve Jobs line about a band that was greater than the sum of its parts. Anand, even then, was the one chasing everyone to stay close — \"am most despo amongst all of us to stay connected.\"" },
-    { year: 2015, age: 34, title: "Certified to dive anywhere in the world", note: "Anand joined a group of strangers from Facebook, flew to the Andamans and came back scuba-certified. \"I can dive anywhere in the world upto 18 m.\" The same year, he quietly opened up to the group about his hardest years — and how they made him kinder." },
-    { year: 2016, age: 35, title: "The Benjamin Button year", note: "\"How does Andy get younger all the time!!\" The group genuinely could not explain it. Paras had a theory: \"because he likes and lives in the present.\"" },
-    { year: 2017, age: 36, title: "The silent catalyst", note: "Without anyone noticing, Anand kept Vighanesh and Sneha quietly aware of each other — and a marriage happened. \"He has been a part of all major / important phases of my life — good and bad.\" Then he picked up a guitar and played at their sangeet." },
+    { year: 2015, age: 34, title: "Certified to dive anywhere in the world", note: "Anand joined a group of strangers from Facebook, flew to the Andamans and came back scuba-certified. \"I can dive anywhere in the world upto 18 m.\" The same year, he quietly opened up to the group about his hardest years — and how they made him kinder.", photo: { src: "assets/photos/p74.jpg", i: 0 } },
+    { year: 2016, age: 35, title: "The Benjamin Button year", note: "\"How does Andy get younger all the time!!\" The group genuinely could not explain it. Paras had a theory: \"because he likes and lives in the present.\"", photo: { src: "assets/photos/p83.jpg", i: 1 } },
+    { year: 2017, age: 36, title: "The silent catalyst", note: "Without anyone noticing, Anand kept Vighanesh and Sneha quietly aware of each other — and a marriage happened. \"He has been a part of all major / important phases of my life — good and bad.\" Then he picked up a guitar and played at their sangeet.", photo: { src: "assets/photos/p243.jpg", i: 8 } },
     { year: 2018, age: 37, title: "Gudi Padwa — a daughter", note: "On Gudi Padwa, Akshara arrived. Vighanesh's line said it all: \"Gods grace — gudi padwa maalik gifted with gudiya!\"" },
     { year: 2019, age: 38, title: "Off the grid", note: "A quieter chapter — Anand stepped away from the group for a while. The friends kept a chair warm for him the whole time." },
-    { year: 2020, age: 39, title: "Returns as \"Anand 1806\" — and teaches 150 kids", note: "He came back to the group under a new name carrying his birthday — 1806. Then, mid-lockdown, he joined Thinksharp Foundation, rallied ten volunteers and was personally teaching maths to 150 rural children every Saturday." },
-    { year: 2021, age: 40, title: "Praise me now instead", note: "He shared a poem he lived by: \"You will say words of praise / but I won't hear. Praise me now instead.\" Presence over ceremony — always." },
-    { year: 2022, age: 41, title: "The Beatles, together again", note: "After years apart, the four reunited in Mumbai. Anand booked the place, organised the food, offered to bring a home-cooked dabba for a recovering friend. \"May 4 of us always be 1 whether it's 41 or 51 .. or 71.\"" },
-    { year: 2023, age: 42, title: "20 years a CA, 25 years a fanboy", note: "Two decades since the four passed CA together. And 25 years after first-day-first-show of Dil Se in 1998, he was back in the front row for Jawan: \"He is bald, he is bad and he is back.\"" },
-    { year: 2024, age: 43, title: "Just a dot in the vast expanse", note: "He spent his birthday on a mountain, posting a humble aerial photo — and a reminder that the picture never shows the twelve hard hours of climbing behind it." },
-    { year: 2025, age: 44, title: "Valley of Flowers", note: "22 years a CA, a new senior role, his son Aarush winning first prize at a science fest — and Anand still out trekking the Valley of Flowers at 44, \"doing stuff which we used to do at 23.\"" },
-    { year: 2026, age: 45, title: "He found his voice again", note: "After two years of vocal-cord pain that stole his voice, Anand sang in public again. Vighanesh secretly flew in to cheer from the crowd. \"One need not be the best singer … as long as one has best true friends.\"" },
+    { year: 2020, age: 39, title: "Returns as \"Anand 1806\" — and teaches 150 kids", note: "He came back to the group under a new name carrying his birthday — 1806. Then, mid-lockdown, he joined Thinksharp Foundation, rallied ten volunteers and was personally teaching maths to 150 rural children every Saturday.", photo: { src: "assets/photos/p308.jpg", i: 10 } },
+    { year: 2021, age: 40, title: "Praise me now instead", note: "He shared a poem he lived by: \"You will say words of praise / but I won't hear. Praise me now instead.\" Presence over ceremony — always.", photo: { src: "assets/photos/p343.jpg", i: 11 } },
+    { year: 2022, age: 41, title: "The Beatles, together again", note: "After years apart, the four reunited in Mumbai. Anand booked the place, organised the food, offered to bring a home-cooked dabba for a recovering friend. \"May 4 of us always be 1 whether it's 41 or 51 .. or 71.\"", photo: { src: "assets/photos/p411.jpg", i: 13 } },
+    { year: 2023, age: 42, title: "20 years a CA, 25 years a fanboy", note: "Two decades since the four passed CA together. And 25 years after first-day-first-show of Dil Se in 1998, he was back in the front row for Jawan: \"He is bald, he is bad and he is back.\"", photo: { src: "assets/photos/p452.jpg", i: 17 } },
+    { year: 2024, age: 43, title: "Just a dot in the vast expanse", note: "He spent his birthday on a mountain, posting a humble aerial photo — and a reminder that the picture never shows the twelve hard hours of climbing behind it.", photo: { src: "assets/photos/p514.jpg", i: 21 } },
+    { year: 2025, age: 44, title: "Valley of Flowers", note: "22 years a CA, a new senior role, his son Aarush winning first prize at a science fest — and Anand still out trekking the Valley of Flowers at 44, \"doing stuff which we used to do at 23.\"", photo: { src: "assets/photos/p547.jpg", i: 24 } },
+    { year: 2026, age: 45, title: "He found his voice again", note: "After two years of vocal-cord pain that stole his voice, Anand sang in public again. Vighanesh secretly flew in to cheer from the crowd. \"One need not be the best singer … as long as one has best true friends.\"", photo: { src: "assets/photos/p576.jpg", i: 25 } },
   ],
 
   // ── What the Beatles say about you ─────────────────────────────────────
@@ -142,7 +142,38 @@ window.TRIBUTE = {
   // ── Photo gallery ──────────────────────────────────────────────────────
   // Populated once curated photos are added to assets/photos/.
   // Each: { src, caption, date, year }. Videos: add { video: "file.mp4", poster: "img.jpg" }.
-  gallery: [],
+  gallery: [
+    { src: "assets/photos/p74.jpg", caption: "Arms up, lights on", date: "2016-01-10" },
+    { src: "assets/photos/p83.jpg", caption: "On the trail", date: "2016-01-10" },
+    { src: "assets/photos/p121.jpg", caption: "Family", date: "2016-10-02" },
+    { src: "assets/photos/p153.jpg", caption: "With little Aarush", date: "2017-01-30" },
+    { src: "assets/photos/p162.jpg", caption: "With the kids", date: "2017-03-11" },
+    { src: "assets/photos/p182.jpg", caption: "The Beatles, full table", date: "2017-07-16" },
+    { src: "assets/photos/p211.jpg", caption: "Anand & Snehal", date: "2017-10-29" },
+    { src: "assets/photos/p237.jpg", caption: "Anand & Snehal", date: "2017-12-25" },
+    { src: "assets/photos/p243.jpg", caption: "Daddy to be — expecting Akshara", date: "2017-12-30" },
+    { src: "assets/photos/p306.jpg", caption: "Homework hour", date: "2020-09-20" },
+    { src: "assets/photos/p308.jpg", caption: "That smile", date: "2020-09-20" },
+    { src: "assets/photos/p343.jpg", caption: "The boys", date: "2021-02-13" },
+    { src: "assets/photos/p392.jpg", caption: "Two of the Beatles", date: "2022-07-09" },
+    { src: "assets/photos/p411.jpg", caption: "Beach days", date: "2022-12-22" },
+    { src: "assets/photos/p422.jpg", caption: "Making things with the kids", date: "2022-12-23" },
+    { src: "assets/photos/p438.jpg", caption: "Dinner, reunited", date: "2023-02-26" },
+    { video: "assets/photos/v_manori.mp4", poster: "assets/photos/v_manori.jpg", caption: "Manori — birthday morning", date: "2023-06-18" },
+    { src: "assets/photos/p452.jpg", caption: "The gang", date: "2023-09-07" },
+    { src: "assets/photos/p469.jpg", caption: "Three of a kind", date: "2023-11-26" },
+    { src: "assets/photos/p481.jpg", caption: "Just a dot in the vast expanse", date: "2023-12-26" },
+    { src: "assets/photos/p510.jpg", caption: "Cake & family", date: "2024-11-19" },
+    { src: "assets/photos/p514.jpg", caption: "Father and son", date: "2024-12-26" },
+    { src: "assets/photos/p520.jpg", caption: "Family, all together", date: "2025-01-05" },
+    { src: "assets/photos/p535.jpg", caption: "On the pitch", date: "2025-06-15" },
+    { src: "assets/photos/p547.jpg", caption: "Brothers", date: "2025-09-07" },
+    { src: "assets/photos/p576.jpg", caption: "Finding his voice again", date: "2026-02-07" },
+    { video: "assets/photos/v_singing.mp4", poster: "assets/photos/v_singing.jpg", caption: "Finding his voice again — live", date: "2026-02-07" },
+    { src: "assets/photos/p577.jpg", caption: "At the function", date: "2026-02-08" },
+    { video: "assets/photos/v_bhajan.mp4", poster: "assets/photos/v_bhajan.jpg", caption: "Aarush sings a bhajan — a proud moment", date: "2026-02-08" },
+    { src: "assets/photos/p601.jpg", caption: "Let's do something AI can't — eat the mangoes 🥭", date: "2026-05-23" },
+  ],
 
   // ── Closing note ───────────────────────────────────────────────────────
   closing: {
