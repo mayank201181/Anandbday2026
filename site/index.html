@@ -9,11 +9,32 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="styles.css" />
+  <script>
+    // Pre-paint: if already unlocked this browser, skip the gate (no flash).
+    try { if (localStorage.getItem("anandGate") === "1") document.documentElement.classList.add("unlocked"); } catch (e) {}
+  </script>
 </head>
 <body>
   <!-- Night sky -->
   <canvas id="starfield" aria-hidden="true"></canvas>
   <canvas id="confetti" aria-hidden="true"></canvas>
+
+  <!-- Access gate -->
+  <div class="gate" id="gate">
+    <div class="gate-card">
+      <p class="kicker">The Beatles · est. 2014</p>
+      <h2 class="gate-title">A little something<br />for <span class="gold">Anand</span></h2>
+      <p class="gate-sub">Enter the access code to come in.</p>
+      <form id="gateForm" class="gate-form" autocomplete="off">
+        <input id="gateInput" class="gate-input" type="text" inputmode="text"
+               autocapitalize="none" autocorrect="off" spellcheck="false"
+               placeholder="access code" aria-label="Access code" />
+        <button class="cta" type="submit">Enter</button>
+      </form>
+      <p class="gate-err" id="gateErr" role="alert"></p>
+      <p class="gate-hint">Ask a Beatle for the code.</p>
+    </div>
+  </div>
 
   <!-- Hero -->
   <header class="hero" id="top">

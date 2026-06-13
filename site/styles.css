@@ -396,6 +396,54 @@ main, .hero, .footer { position: relative; z-index: 1; }
   background: linear-gradient(180deg, rgba(200,200,200,0.5), transparent);
 }
 
+/* ── Access gate ────────────────────────────────────── */
+.gate {
+  position: fixed; inset: 0; z-index: 200;
+  display: flex; align-items: center; justify-content: center;
+  padding: 1.5rem;
+  background: radial-gradient(circle at 50% 30%, rgba(20,26,48,0.92), rgba(6,8,16,0.97));
+  backdrop-filter: blur(6px);
+}
+html.unlocked .gate { display: none; }
+/* Keep everything but the night sky hidden until unlocked */
+html:not(.unlocked) .hero,
+html:not(.unlocked) .tabs,
+html:not(.unlocked) #main,
+html:not(.unlocked) .footer { display: none !important; }
+html:not(.unlocked), html:not(.unlocked) body { overflow: hidden; }
+
+.gate-card {
+  text-align: center; max-width: 30rem; width: 100%;
+  padding: 2.5rem 1.5rem;
+  animation: fadeIn 0.6s ease;
+}
+.gate-title {
+  font-family: var(--serif); font-weight: 500;
+  font-size: clamp(2rem, 6vw, 3rem); line-height: 1.1;
+  margin: 0.6rem 0 0.9rem; color: var(--cream);
+}
+.gate-sub { color: var(--muted); font-size: 1rem; margin-bottom: 1.8rem; }
+.gate-form { display: flex; gap: 0.6rem; justify-content: center; flex-wrap: wrap; }
+.gate-input {
+  flex: 1 1 14rem; min-width: 0;
+  background: rgba(255,255,255,0.05);
+  border: 1px solid var(--panel-line); border-radius: 999px;
+  color: var(--cream); font-family: var(--sans); font-size: 1.05rem;
+  padding: 0.85rem 1.4rem; text-align: center; letter-spacing: 0.1em;
+  outline: none; transition: border-color 0.25s ease, background 0.25s ease;
+}
+.gate-input:focus { border-color: var(--gold-soft); background: rgba(255,255,255,0.08); }
+.gate-input::placeholder { color: var(--muted); letter-spacing: 0.04em; }
+.gate-form .cta { flex: 0 0 auto; margin: 0; }
+.gate-err { color: #f0a3a3; font-size: 0.9rem; min-height: 1.2rem; margin-top: 1rem; }
+.gate-hint { color: var(--muted); font-size: 0.82rem; margin-top: 0.4rem; opacity: 0.75; font-style: italic; }
+.gate-form.shake { animation: shake 0.45s ease; }
+@keyframes shake {
+  0%,100% { transform: translateX(0); }
+  20% { transform: translateX(-9px); } 40% { transform: translateX(8px); }
+  60% { transform: translateX(-6px); } 80% { transform: translateX(4px); }
+}
+
 /* ── Tabs ───────────────────────────────────────────── */
 .tabs {
   position: sticky; top: 0; z-index: 50;

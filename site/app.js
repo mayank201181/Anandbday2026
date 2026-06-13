@@ -279,6 +279,40 @@
   cake.addEventListener("click", blow);
   cake.addEventListener("keydown", function (e) { if (e.key === "Enter" || e.key === " ") { e.preventDefault(); blow(); } });
 
-  // A gentle welcome burst once the hero settles.
-  window.addEventListener("load", function () { setTimeout(function () { confetti.burst(120); }, 700); });
+  // A gentle welcome burst once the hero settles (only if already past the gate).
+  window.addEventListener("load", function () {
+    if (document.documentElement.classList.contains("unlocked")) {
+      setTimeout(function () { confetti.burst(120); }, 700);
+    }
+  });
+
+  /* ── Access gate ── */
+  (function () {
+    var CODE = "andy45";
+    var form = $("gateForm"), input = $("gateInput"), err = $("gateErr");
+    if (!form) return;
+    function unlock() {
+      document.documentElement.classList.add("unlocked");
+      try { localStorage.setItem("anandGate", "1"); } catch (e) {}
+      window.scrollTo(0, 0);
+      setTimeout(function () { confetti.burst(160); }, 250);
+    }
+    form.addEventListener("submit", function (e) {
+      e.preventDefault();
+      var v = (input.value || "").toLowerCase().replace(/\s+/g, "");
+      if (v === CODE) {
+        err.textContent = "";
+        unlock();
+      } else {
+        err.textContent = "That's not quite it — try again.";
+        form.classList.remove("shake");
+        void form.offsetWidth; // restart animation
+        form.classList.add("shake");
+        input.select();
+      }
+    });
+    if (!document.documentElement.classList.contains("unlocked")) {
+      setTimeout(function () { input.focus(); }, 400);
+    }
+  })();
 })();
